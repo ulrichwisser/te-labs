@@ -63,10 +63,6 @@ Run dnsviz against your domain
 root@resolv1:~# dnsviz probe grpX.<lab-domain>.te-labs.training | dnsviz graph -Tpng -O
 ```
 
-Inform your trainer who will download the file and open it in a graphical environment.
-
-Alternatively, you may want to download and open this file on your own personal laptop. To do so, you can do the following.
-
 Upload the file to the cloud 
 
 ```
