@@ -317,8 +317,7 @@ Edit the config file **/etc/bind/named.conf.options** and add the following:
 ``` 
 validate-except
    {
-       "SOME_DOMAIN_NAME_TO_EXCLUDE";
-       "ANOTHER.DOMAIN.g/ccTLD";
+       "dnssec-failed.org";
    };
 ```
 
@@ -330,7 +329,7 @@ To temporarily stop a broken chain of trust, add the following to the **unbound.
 
 ```
 server:
-    domain-insecure: "A_DOMAIN_TO_TEMPORARILY_DISABLE.g/ccTLD"
+    domain-insecure: "dnssec-failed.org"
 ```
 
 Restart the service and test it using dig!
