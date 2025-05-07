@@ -107,7 +107,7 @@ $TTL    300
 ; grpX 
 ;@             NS           ns1.grpX.<lab_domain>.te-labs.training.
 ;@             NS           ns2.grpX.<lab_domain>.te-labs.training.
-@		NS		<lab_domain>te-labs.training.
+@		NS		<lab_domain>.te-labs.training.
 
 ns1         A           100.100.X.130
 ns1         AAAA        fd89:59e0:X:128::130
