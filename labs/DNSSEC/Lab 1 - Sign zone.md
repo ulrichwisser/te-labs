@@ -44,8 +44,8 @@ Generate **KSK**
 Change ownership to the zones and keys folders
 
 ```
-# chown -R bind:bind /etc/bind/keys
-# chown -R bind:bind /etc/bind/zones
+# chown -R bind:bind /var/lib/bind/keys
+# chown -R bind:bind /var/lib/bind/zones
 ```
 
 
@@ -58,7 +58,7 @@ There is even a third option and more... Which one to use is up to you. As we ar
 ## Manual zone signing.
 
 ```
-# cd /etc/bind/
+# cd /var/lib/bind/
 # dnssec-signzone -S -K keys/ -o grpX.<lab_domain>.te-labs.training zones/db.grpX
 ```
 
