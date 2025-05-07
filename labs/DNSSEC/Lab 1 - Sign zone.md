@@ -133,10 +133,10 @@ Update your zone configuration statement in `/etc/bind/named.conf.local`, to loo
 ```
 zone "grpX.<lab_domain>.te-labs.training" {
 	type primary;
-	file "/etc/bind/zones/db.grpX";
+	file "/var/lib/bind/zones/db.grpX";
 	allow-transfer { any; };
 	also-notify {100.100.X.130; 100.100.X.131; };
-	key-directory "/etc/bind/keys";
+	key-directory "/var/lib/bind/keys";
 	auto-dnssec maintain;
 	inline-signing yes;
 };
