@@ -25,8 +25,8 @@ Position yourself in BIND configuration folder and then backup your zone file:
 Create a directory to hold your DNSSEC keys
 
 ```
-# mkdir -p /etc/bind/keys
-# cd /etc/bind/keys
+# mkdir -p /var/lib/bind/keys
+# cd /var/lib/bind/keys
 ```
 
 Generate **ZSK**
