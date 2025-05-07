@@ -136,9 +136,7 @@ zone "grpX.<lab_domain>.te-labs.training" {
 	file "/var/lib/bind/zones/db.grpX";
 	allow-transfer { any; };
 	also-notify {100.100.X.130; 100.100.X.131; };
-	key-directory "/var/lib/bind/keys";
-	auto-dnssec maintain;
-	inline-signing yes;
+	dnssec-policy "default";
 };
 ```
 
