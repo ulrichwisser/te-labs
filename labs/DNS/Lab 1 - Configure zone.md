@@ -84,10 +84,10 @@ Our zone configuration must be compatible with that.
 
 We use the container "SOA" (hidden primary authoritative) [**grpX-soa**]
 
-We go to the `/etc/bind` directory, create a new folder for our zone files. Inside that new folder, we then create a new file for our domain zone data.
+Create a new folder for our zone files `/var/lib/bind/zones`. Inside that new folder, we then create a new file for our domain zone data.
 
 ```
-root@soa:/etc/bind/zones# touch db.grpX
+root@soa:/var/lib/bind/zones# touch db.grpX
 ```
 
 Then, update the db.grpX zone to look like the below:
@@ -128,11 +128,13 @@ In the configuration file ***/etc/bind/named.conf.local*** , create a new "zone"
 ```
 zone "grpX.<lab_domain>.te-labs.training" {
 		type primary;
-		file "/etc/bind/zones/db.grpX";
+		file "/var/lib/bind/zones/db.grpX";
 		allow-transfer { any; };
 		also-notify {100.100.X.130; 100.100.X.131; };
 }; 
 ```
+
+Change owner of the zone file and directory `chown -R bind:bind /var/lib/bind`
 
 > [!TIP]
 >
@@ -179,8 +181,8 @@ These servers are the ones that expose our zone publicly (so they will be open-t
 Go to the `/etc/bind` directory and create a file that will contain our zone file in the nameserver:
 
 ```
-$ sudo mkdir -p /etc/bind/zones
-$ touch /etc/bind/zones/db.grpX.secondary
+$ sudo mkdir -p /var/lib/bind/zones
+$ touch /var/lib/bind/zones/db.grpX.secondary
 ```
 
 To do this, in the ***/etc/bind/named.conf.local*** file, configure the following parameters:
@@ -195,7 +197,7 @@ To do this, in the ***/etc/bind/named.conf.local*** file, configure the followin
 
 zone "grpX.<lab_domain>.te-labs.training" {
         type secondary;
-        file "/etc/bind/zones/db.grpX.secondary";
+        file "/var/lib/bind/zones/db.grpX.secondary";
         masters { 100.100.X.66; };
 };
 ```
